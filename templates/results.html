@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>🎥 Recommendations for "{{ film_title }}"</h1>
+    </header>
+    <main>
+        <ul>
+            {% for idx, score in recommendations %}
+                <li>
+                    <strong>{{ movies_df.iloc[idx].title }}</strong>
+                    <span class="score">(Similarity: {{ "{:.2f}".format(score) }})</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="back-link" href="/">🔙 Search for another movie</a>
+    </main>
+    <footer>
+        <p>Powered by Flask & Python | Movie Recommender Project by Thomas Hyam</p>
+    </footer>
+</body>
+</html>

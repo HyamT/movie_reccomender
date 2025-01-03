@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>🎬 Movie Recommender</h1>
+    </header>
+    <main>
+        <p>Enter a movie title below to get personalized recommendations for over 9500 movies.</p>
+        <form action="/recommend" method="post">
+            <label for="film_title">Movie Title:</label>
+            <input type="text" id="film_title" name="film_title" placeholder="e.g., The Lion King" required>
+            <button type="submit">Get Recommendations</button>
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </main>
+    <footer>
+        <p>Powered by Flask & Python | Movie Recommender Project by Thomas Hyam</p>
+    </footer>
+</body>
+</html>
